@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="module" src="/@vite/client"></script>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickNotes System Design & API Client</title>
+    <meta name="description" content="QuickNotes scalable note-taking system architecture, REST API design, relational data model, and interactive API client." />
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/api.js" defer></script>
+  <script src="/_aistudio-iframe.js?v=6634132a"></script></head>
+  <body>
+    <div class="container">
+      <header>
+        <span class="app-badge">QuickNotes Engineering</span>
+        <h1>QuickNotes API Client</h1>
+        <p>
+          Lead Engineer prototype connecting to the REST API with CRUD operations, input validation, and system design documentation.
+        </p>
+        <nav class="doc-nav">
+          <a href="docs/api-design.md" target="_blank">📄 API Design Doc</a>
+          <a href="docs/data-model.md" target="_blank">🗄️ Data Model Doc</a>
+          <a href="docs/architecture.md" target="_blank">🏛️ System Architecture Doc</a>
+          <a href="README.md" target="_blank">📖 README</a>
+        </nav>
+
+        <!-- One-click Download Toolbar for GitHub submission -->
+        <div class="download-bar">
+          <div class="download-bar-header">
+            <span>📦 Download Files for GitHub Upload:</span>
+          </div>
+          <div class="download-btn-group">
+            <button type="button" class="file-dl-btn" data-file="index.html">📥 index.html</button>
+            <button type="button" class="file-dl-btn" data-file="api.js">📥 api.js</button>
+            <button type="button" class="file-dl-btn" data-file="style.css">📥 style.css</button>
+            <button type="button" class="file-dl-btn" data-file="README.md">📥 README.md</button>
+            <button type="button" class="file-dl-btn" data-file="docs/api-design.md">📥 api-design.md</button>
+            <button type="button" class="file-dl-btn" data-file="docs/data-model.md">📥 data-model.md</button>
+            <button type="button" class="file-dl-btn" data-file="docs/architecture.md">📥 architecture.md</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Status notification element for loading, success, and error messages -->
+      <p id="status" role="alert" aria-live="polite"></p>
+
+      <div class="app-grid">
+        <!-- Sidebar: Note Creation Form -->
+        <section class="card">
+          <h2 class="card-title">Create a Note</h2>
+          <form id="note-form">
+            <div class="form-group">
+              <label for="title-input">
+                Title <span style="color: #ef4444;">*</span>
+                <span class="char-counter" id="title-counter">0 / 100</span>
+              </label>
+              <input
+                type="text"
+                id="title-input"
+                name="title"
+                placeholder="Enter note title (max 100 chars)"
+                maxlength="100"
+                required
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="body-input">Body (optional)</label>
+              <textarea
+                id="body-input"
+                name="body"
+                placeholder="Write your note content here..."
+                rows="4"
+              ></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn">
+              <span>Add Note</span>
+            </button>
+          </form>
+        </section>
+
+        <!-- Main Content: Notes Feed -->
+        <section class="card">
+          <div class="notes-header">
+            <h2 class="card-title" style="margin-bottom: 0;">Notes Feed</h2>
+            <button type="button" id="load-btn">
+              <span>Load notes</span>
+            </button>
+          </div>
+
+          <!-- Empty list element dynamically populated by api.js -->
+          <ul id="notes-list"></ul>
+        </section>
+      </div>
+
+      <footer>
+        <p>QuickNotes System Design Capstone Project • Scalable Architecture for 1 Million Users</p>
+      </footer>
+    </div>
+  </body>
+</html>
